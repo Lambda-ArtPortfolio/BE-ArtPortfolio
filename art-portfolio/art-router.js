@@ -28,9 +28,10 @@ router.delete('/:id', async (req, res) => {
 
     try {
         const deleted = await Art.remove(id)
-
+        const editedArt = await Art.getArt()
         if (deleted) {
-            res.json({ removed: deleted})
+            console.log(editedArt)
+            res.json(editedArt)
         } else {
             res.status(404).json({ message: 'Could not find the art post with the given ID' })
         }
