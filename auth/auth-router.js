@@ -5,9 +5,9 @@ const secrets = require('./secrets')
 
 const Users = require('./auth-model')
 
-// router.get('/', (req, res) => {
-//   res.send('You are connected!!')
-// })
+router.get('/', (req, res) => {
+  res.send('You are connected!!')
+})
 
 router.post('/register', (req, res) => {
   let user = req.body
