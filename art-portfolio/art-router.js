@@ -11,6 +11,15 @@ router.get('/', async (req, res) => {
     }
 })
 
+router.post('/', async (req, res) => {
+    const body = req.body
 
+    try {
+        const art = await Art.add(body)
+        res.status(201).json(art)
+    } catch (error) {
+        res.status(500).json({ message: 'Failed to add user art' })
+    }
+})
 
 module.exports = router
