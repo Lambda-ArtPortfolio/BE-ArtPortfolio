@@ -10,7 +10,7 @@ module.exports = {
     seeds: { directory: './database/seeds' },
   },
   production: {
-    client: 'pg',
+    client: 'postgresql',
     connection: process.env.DATABASE_URL,
     useNullAsDefault: true,
     migrations: {
@@ -20,7 +20,7 @@ module.exports = {
     seeds: { directory: './database/seeds' },
   },
   testing: {
-    client: 'pg',
+    client: 'postgresql',
     connection: {
       host: process.env.DB_HOST,
       port: 5432,
