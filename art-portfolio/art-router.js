@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
         const art = await Art.getArt()
         res.json(art)
     } catch (error) {
-        res.status(500).json({ message: 'Failed to get list of art pictures'})
+        res.status(500).json({ message: 'Failed to get list of art posts'})
     }
 })
 
@@ -16,9 +16,44 @@ router.post('/', async (req, res) => {
 
     try {
         const art = await Art.add(body)
-        res.status(201).json(art)
+        const newArt = {id: art[0], ...body}
+        res.status(201).json(newArt)
     } catch (error) {
-        res.status(500).json({ message: 'Failed to add user art' })
+        res.status(500).json({ message: 'Failed to add user post' })
+    }
+})
+
+router.delete('/:id', async (req, res) => {
+    const { id } = req.params
+
+    try {
+        const deleted = await Art.remove(id)
+
+        if (deleted) {
+            res.json({ removed: deleted})
+        } else {
+            res.status(404).json({ message: 'Could not find the art post with the given ID' })
+        }
+    } catch(error) {
+        res.status(500).json({ message: 'Failed to delete art post' })
+    }
+})
+
+router.put('/:id', async (req, res) => {
+    const { id } = req.params
+    const changes = req.body
+
+    try {
+        const artId = await Art.findById(id)
+
+        if (artId) {
+            const updatedArt = await Art.update(changes, id)
+            res.status(200).json(updatedArt)
+        } else {
+            res.status(404).json({ message: 'Could not find art post with given ID' })
+        }
+    } catch (error) {
+        res.status(500).json({ message: 'Failed to update art post'})
     }
 })
 
