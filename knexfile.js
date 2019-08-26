@@ -9,4 +9,30 @@ module.exports = {
     },
     seeds: { directory: './database/seeds' },
   },
+  production: {
+    client: 'pg',
+    connection: process.env.DATABASE_URL,
+    useNullAsDefault: true,
+    migrations: {
+      directory: './database/migrations',
+      tableName: 'dbmigrations',
+    },
+    seeds: { directory: './database/seeds' },
+  },
+  testing: {
+    client: 'pg',
+    connection: {
+      host: process.env.DB_HOST,
+      port: 5432,
+      database: process.env.DB_NAME,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD
+    },
+    useNullAsDefault: true,
+    migrations: {
+      directory: './models/migrations',
+      tableName: 'dbmigrations',
+    },
+    seeds: { directory: './models/seeds' },
+  },
 };
