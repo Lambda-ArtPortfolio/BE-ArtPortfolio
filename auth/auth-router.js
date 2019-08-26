@@ -5,9 +5,9 @@ const secrets = require('./secrets')
 
 const Users = require('./auth-model')
 
-router.get('/', (req, res) => {
-  res.send('You are connected!!')
-})
+// router.get('/', (req, res) => {
+//   res.send('You are connected!!')
+// })
 
 router.post('/register', (req, res) => {
   let user = req.body
@@ -22,7 +22,7 @@ router.post('/register', (req, res) => {
       res.status(201).json({ added, token})
     })
     .catch(error => {
-      res.status(500).json({ message: 'Failed to register user', error})
+      res.status(500).json({ message: 'Failed to register user'})
     })
 });
 
@@ -40,7 +40,7 @@ router.post('/login', (req, res) => {
       }
     })
     .catch(error => {
-      res.status(500).json({ message: 'Failed to login!', error})
+      res.status(500).json({ message: 'Failed to login!'})
     })
 });
 

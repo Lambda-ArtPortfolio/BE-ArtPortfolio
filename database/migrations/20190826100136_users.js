@@ -7,9 +7,16 @@ exports.up = function(knex) {
       .notNullable()
       .unique();
     users.string('password', 255).notNullable();
-  });
+  })
+  .createTable('art-data', tbl => {
+    tbl.increments()
+
+    tbl.string('image').notNullable()
+    tbl.string('description').notNullable()
+  })
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTableIfExists('users');
+  return knex.schema.dropTableIfExists('users')
+    .dropTableIfExists('art-data')
 };
