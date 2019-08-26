@@ -1,3 +1,7 @@
+const dotenv = require('dotenv')
+
+dotenv.config()
+
 module.exports = {
   development: {
     client: 'sqlite3',
@@ -13,6 +17,10 @@ module.exports = {
     client: 'pg',
     connection: process.env.DATABASE_URL,
     useNullAsDefault: true,
+    pool: {
+      min: 0,
+      max: 15,
+    },
     migrations: {
       directory: './database/migrations',
       tableName: 'dbmigrations',
