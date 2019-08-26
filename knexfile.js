@@ -36,3 +36,4 @@ module.exports = {
     seeds: { directory: './models/seeds' },
   },
 };
+
