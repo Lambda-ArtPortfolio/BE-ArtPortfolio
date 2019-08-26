@@ -14,8 +14,8 @@ server.use(express.json())
 server.use('/auth', authRouter)
 server.use('/', authRouter)
 
-server.get('/', (req, res) => {
-    res.status(200).json({ message: 'Hello you are up and running!' })
-})
+// server.get('/', (req, res) => {
+//     res.status(200).json({ message: 'Hello you are up and running!' })
+// })
 
 module.exports = server
