@@ -18,8 +18,8 @@ router.post('/register', (req, res) => {
   Users.add(user)
     .then(addedUser => {
       const token = generateToken(user)
-      const added = { username: user.username}
-      res.status(201).json({ added, token})
+      const userInfo = { name: user.name, username: user.username}
+      res.status(201).json({ userInfo, token})
     })
     .catch(error => {
       res.status(500).json({ message: 'Failed to register user'})
