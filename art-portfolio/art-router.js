@@ -49,7 +49,7 @@ router.put('/:id', async (req, res) => {
 
         if (artId) {
             const updatedArt = await Art.update(changes, id)
-            res.status(200).json(updatedArt)
+            res.status(200).json(changes)
         } else {
             res.status(404).json({ message: 'Could not find art post with given ID' })
         }
