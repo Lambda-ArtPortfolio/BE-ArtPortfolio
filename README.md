@@ -5,14 +5,16 @@ Link to the base URL: https://art-portfolio-bw.herokuapp.com/
 
 # Routes
 
-POST auth/login -Login users  
+### POST auth/login -Login users  
+
 Returns an object with a token:
 >{  
 >>"message": "Welcome to the app, user3",  
   "token": "token info"  
 }
 ___
-POST auth/register -Register new users  
+### POST auth/register -Register new users  
+
 Returns an object of the new registered user:   
 > {  
 >>"userInfo":  
@@ -23,7 +25,8 @@ Returns an object of the new registered user:
   "token": "token info"  
 }
 ___
-POST /art -Adds a new art post  
+### POST /art -Adds a new art post  
+
 Returns the added art post object:  
 > {  
   >>"id": 8,  
@@ -31,7 +34,8 @@ Returns the added art post object:
   "description": "clock tower in the snowy mountains"  
 }
 ___
-GET /art - Grabs list of all art pictures  
+### GET /art - Grabs list of all art pictures  
+
 Returns an array of art posts  
 > [  
   >>{  
@@ -51,7 +55,8 @@ Returns an array of art posts
   },  
 ]
 ___
-DELETE /art/:id - Deletes an art post with the given ID  
+### DELETE /art/:id - Deletes an art post with the given ID  
+
 Returns the newly updated array:  
 > [  
   >>{  
@@ -71,7 +76,8 @@ Returns the newly updated array:
   },  
 ]
 ___
-PUT /art/:id - Edits an art post with the given ID  
+### PUT /art/:id - Edits an art post with the given ID  
+
 Returns an object with the updated information  
 > {  
   >>"image": "https://images.unsplash.com/photo-1566725129530-fffa7e36d07e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
