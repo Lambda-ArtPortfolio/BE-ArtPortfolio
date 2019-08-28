@@ -28,20 +28,14 @@ module.exports = {
     seeds: { directory: './database/seeds' },
   },
   testing: {
-    client: 'pg',
-    connection: {
-      host: process.env.DB_HOST,
-      port: 5432,
-      database: process.env.DB_NAME,
-      user: process.env.DB_USER,
-      password: process.env.DB_PASSWORD
-    },
+    client: 'sqlite3',
+    connection: { filename: './database/test.db3' },
     useNullAsDefault: true,
     migrations: {
-      directory: './models/migrations',
+      directory: './database/migrations',
       tableName: 'dbmigrations',
     },
-    seeds: { directory: './models/seeds' },
+    seeds: { directory: './database/seeds' },
   },
 };
 
