@@ -3,11 +3,10 @@ const server = require('../server')
 const db = require('../database/dbConfig.js')
 
 describe('POST /register', () => {
-    beforeEach( async() => {
-        await db('users').truncate()
-    })
+   
 
     it('returns 201 created', () => {
+    
         return request(server)
             .post('/auth/register')
             .send({
@@ -19,7 +18,8 @@ describe('POST /register', () => {
                 expect(res.status).toBe(201)
             })
     });
-    it.skip('returns object', () => {
+    it('returns object', () => {
+        
         return request(server)
             .post('/auth/register')
             .send({
